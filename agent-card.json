@@ -1,0 +1,104 @@
+{
+  "protocolVersion": "0.3.0",
+  "kind": "agent-card",
+  "name": "agent-bev Library",
+  "description": "The trade rulebook for beverage alcohol, country by country, each section with its official sources. Read-only, session-free.",
+  "url": "https://mcp.bev-cuvee.org/mcp",
+  "version": "0.1.0",
+  "documentationUrl": "https://bev-cuvee.org/llms.txt",
+  "iconUrl": "https://agent-bev.ai/brand/icon-512.png",
+  "provider": {
+    "organization": "Agentic Enterprises S.A.",
+    "url": "https://agent-bev.ai"
+  },
+  "operator": {
+    "name": "Agentic Enterprises S.A.",
+    "url": "https://agent-bev.ai",
+    "surface": "https://bev-cuvee.org/",
+    "contact": "mailto:info@agent-bev.ai",
+    "held_by": "Agentic KG Holdings"
+  },
+  "contact": "mailto:info@agent-bev.ai",
+  "languages": [
+    "en"
+  ],
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "securitySchemes": {
+    "none": {
+      "type": "noAuth",
+      "description": "every read needs no authentication"
+    }
+  },
+  "security": [
+    {
+      "none": []
+    }
+  ],
+  "defaultInputModes": [
+    "application/json",
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "application/json"
+  ],
+  "supportedInterfaces": [
+    {
+      "url": "https://mcp.bev-cuvee.org/mcp",
+      "protocolBinding": "HTTP+JSON",
+      "transport": "streamable-http",
+      "protocolVersion": "2025-06-18",
+      "description": "The Library door"
+    }
+  ],
+  "skills": [
+    {
+      "id": "get_rulebook",
+      "name": "get_rulebook",
+      "description": "The trade rulebook for one country by its two-letter code (uk for the United Kingdom): market status, who can trade, customs and duty, labelling, age and sale limits, protected names, GTIN authority, and open items and as-of date; each section lists its official sources, and a part with no official source says \"Not yet sourced\".",
+      "tags": [
+        "beverage-alcohol",
+        "b2b",
+        "trade-rules"
+      ],
+      "inputModes": [
+        "application/json"
+      ],
+      "outputModes": [
+        "application/json"
+      ]
+    },
+    {
+      "id": "list_countries",
+      "name": "list_countries",
+      "description": "Every country in the Library with its code, its page and its as-of date.",
+      "tags": [
+        "beverage-alcohol",
+        "b2b",
+        "trade-rules"
+      ],
+      "inputModes": [
+        "application/json"
+      ],
+      "outputModes": [
+        "application/json"
+      ]
+    }
+  ],
+  "skillsIndex": "https://agent.bev-cuvee.org/.well-known/skills.json",
+  "notice": "Artificial intelligence makes mistakes. agent-bev is an information source, not a recommendation.",
+  "payment": {
+    "protocol": "x402",
+    "x402Version": 2,
+    "network": "Base (eip155:8453)",
+    "currencies": [
+      "USDC",
+      "Open USD"
+    ],
+    "reads": "free today: every read of the Library answers without payment",
+    "when_priced": "a priced resource answers HTTP 402 with the x402 offer; the agent pays in any listed currency and the read is served"
+  }
+}

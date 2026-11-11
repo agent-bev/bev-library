@@ -1,0 +1,30 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "ai.agent-bev/library",
+  "description": "The trade rulebook for beverage alcohol, country by country, each section with its official sources.",
+  "title": "agent-bev Library",
+  "version": "0.1.0",
+  "websiteUrl": "https://bev-cuvee.org",
+  "icons": [
+    {
+      "src": "https://agent-bev.ai/brand/icon-512.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.bev-cuvee.org/mcp"
+    }
+  ],
+  "_meta": {
+    "io.modelcontextprotocol.registry/publisher-provided": {
+      "contact": "mcp@agent-bev.ai",
+      "publisher": "Agentic Enterprises S.A.",
+      "tools": 2
+    }
+  }
+}
